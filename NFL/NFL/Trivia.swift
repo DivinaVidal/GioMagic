@@ -10,59 +10,25 @@ import Foundation
 
 struct Trivia: View {
     var body: some View {
-        VStack(alignment: .center) {
-        Text("Question")
-            .cornerRadius(5)
-            .font(.largeTitle)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.blue]), startPoint: .leading, endPoint: .trailing))
-            .foregroundColor(Color.white)
-            .multilineTextAlignment(.center)
-        //Text("option 1")
-            Spacer()
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("choice 1")
-                    .cornerRadius(5)
-                    .font(.largeTitle)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-                    .foregroundColor(Color.red)
-                    .multilineTextAlignment(.center)
-            }
-            Spacer()
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("choice 2")
-                    .cornerRadius(5)
-                    .font(.largeTitle)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-                    .foregroundColor(Color.red)
-                    .multilineTextAlignment(.center)
-            }
-            Spacer()
-            NavigationLink(destination:nextquestion()){
-            Text("choice 3")
-                .cornerRadius(5)
-                .font(.largeTitle)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-                .foregroundColor(Color.red)
-                .multilineTextAlignment(.center)
-            }
-            
-    }
-        .background(
-        Image("trivia")
-            .resizable()
-            .padding(.all, -8.0)
-            .scaledToFill()
-            .opacity(0.8)
-            //.frame(width: 390)
-            //.frame(height: 360)
-            .frame(width: 375, height: 375)
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill))
+        
+        TriviaController()
 }
 struct Trivia_Previews: PreviewProvider {
     static var previews: some View {
         Trivia()
     }
 }
+
+}
+
+struct TriviaController : UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<TriviaController>) {
+    }
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: "Home")
+        return controller
+    }
 
 }

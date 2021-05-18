@@ -8,6 +8,7 @@ import Foundation
 import SwiftUI
 
 struct SignUp : View {
+    @available(iOS 13.0, *)
     var body: some View {
                 VStack {
                     Text("Sign Up!")
@@ -26,31 +27,32 @@ struct SignUp : View {
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer()
-                    NavigationLink(destination: Trivia()){
+                    
+                    NavigationLink(destination: TriviaController() ){
                         Text("Submit")
                             .frame(minWidth: 0, maxWidth: 150)
                             .foregroundColor(.white)
                             .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.blue]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(5)
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    }
             }
                 .padding(.all)
                 .background(
                 Image("Signup")
-                    .resizable()
+                    //.resizable()
                     .padding(.horizontal, -1.0)
                     .scaledToFill()
                     .opacity(0.6)
-                    //.edgesIgnoringSafeArea(.all)
-                    .aspectRatio(contentMode: .fill))
+                    .edgesIgnoringSafeArea(.all)
+                    .aspectRatio(contentMode: .fit))
                 //.frame(width: 500, height: 550, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
             }
 struct SignUp_Previews: PreviewProvider {
+    @available(iOS 13.0, *)
     static var previews: some View{
         SignUp()
     }
     
 }
-
+}
